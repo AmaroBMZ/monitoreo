@@ -1,0 +1,26 @@
+package microservicio.monitoreo;
+
+import org.junit.jupiter.api.Test;
+import org.mockito.MockedStatic;
+import org.mockito.Mockito;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class MonitoreoApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+	@Test
+	void mainIniciaSpringApplication() {
+		String[] args = { "--spring.profiles.active=test" };
+
+		try (MockedStatic<SpringApplication> springApplication = Mockito.mockStatic(SpringApplication.class)) {
+			MonitoreoApplication.main(args);
+
+			springApplication.verify(() -> SpringApplication.run(MonitoreoApplication.class, args));
+		}
+	}
+}
