@@ -79,6 +79,20 @@ src/main/java/microservicio/monitoreo
 - `PATCH /api/respaldos/{id}/restaurar`: marca un respaldo como restaurado.
 - `DELETE /api/respaldos/{id}`: marca un respaldo como eliminado.
 
+### Revision de servicios
+
+- `GET /api/monitoreo/servicios`: revisa los microservicios configurados y guarda un registro por cada respuesta.
+
+La lista de servicios se configura en `src/main/resources/application.properties`, en la propiedad `monitoreo.servicios`. Para la prueba final apunta a endpoints reales de cada microservicio, evitando falsos `CAIDO` cuando un servicio no tiene `/actuator/health`.
+
+## Swagger
+
+Con el microservicio levantado, la documentacion se abre en:
+
+```text
+http://localhost:8092/swagger-ui.html
+```
+
 ## Requisitos
 
 - Java 25
